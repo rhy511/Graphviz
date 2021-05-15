@@ -34,13 +34,24 @@ $ dot -Tpng demo.dot -o demo.png
 $ dot -Tpng demo.txt -o demo.png
 ```
 
+demo.dot
 ![](demo.png)
 
 也可以生成類似下列圖形
+
+graphviz.dot
 ![](graphviz.png)
+
+demo2.dot
 ![](demo2.png)
+
+test.dot
 ![](test.png)
+
+test2.dot
 ![](test2.png)
+
+view_test.dot
 ![](view_test.png)
 
 
