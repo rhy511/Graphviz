@@ -1,0 +1,24 @@
+
+digraph G2{
+	node [shape=box];{
+		Lexical_Analyzer [label="Lexical_Analyzer"];
+		Syntax_Analyzer [label="Syntax_Analyzer"];
+		Semantic_Analyzer [label="Semantic_Analyzer"];
+		Intermediate_Code_Generator [label="Intermediate_Code_Generator"];
+		Machine_Independent_Code_Optimizer [label="Machine_Independent_Code_Optimizer"];
+		Code_Generator [label="Code_Generator"];
+		Machine_Dependent_Code_Optimizer [label="Machine_Dependent_Code_Optimizer"];
+	}
+	node[shape=plaintext]{
+		character_stream [label="character_stream"];
+		target_machine_code [label="target_machine_code"];
+	}
+	character_stream -> Lexical_Analyzer;
+	Lexical_Analyzer -> Syntax_Analyzer [label="Lexical_Analyzer"];
+	Syntax_Analyzer -> Semantic_Analyzer [label="Syntax_Analyzer"];
+	Semantic_Analyzer -> Intermediate_Code_Generator [label="Semantic_Analyzer"] ;
+	Intermediate_Code_Generator -> Machine_Independent_Code_Optimizer [label="Intermediate_Code_Generator"];
+	Machine_Independent_Code_Optimizer -> Code_Generator [label="Code_Generator"];
+	Code_Generator ->Machine_Dependent_Code_Optimizer [label="Machine_Dependent_Code_Optimizer"];
+	Machine_Dependent_Code_Optimizer -> target_machine_code;
+}

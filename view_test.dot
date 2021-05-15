@@ -1,0 +1,35 @@
+digraph G{
+	version4[shape = box];
+	version5[shape = box];
+	version2 -> version4[label = "first merge"];
+	version3 -> version4[label = "second merge"];
+	version4 -> version5[label = "final commit"];
+	
+	subgraph cluster0 {
+		subgraph cluster2 {
+			label = "M3";
+			version1[shape = box];
+			version2[shape = box];
+			version3[shape = box];	
+			version1 -> version2[label = "first commit"];
+			version1 -> version3[label = "second commit"];
+		}
+		label = "M1";
+		color= black;
+		version2_1[shape = box, style = filled];
+		version2_2[shape = box, style = filled];
+		version2_2 -> version2_1[label = "bug fix", style = dashed];
+		
+	}
+
+	subgraph cluster1 {
+		label = "M2";
+		color= black;
+		version3_1[shape = box, style = filled];
+		version3_2[shape = box, style = filled];
+		version3_2 -> version3_1[label = "bug fix", style = dashed];
+	}
+
+	version2_1 -> version2[label = "bug fix", style = dashed];
+	version3_1 -> version3[label = "bug fix", style = dashed];
+}
